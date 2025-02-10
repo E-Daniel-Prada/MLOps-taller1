@@ -36,6 +36,7 @@ taller1/                     # Directorio raíz del proyecto
 ├── requirements.txt         # Lista de dependencias del proyecto
 ├── Dockerfile               # Instrucciones para construir la imagen Docker
 └── README.md                # Este archivo
+```
 
 > **Importante:**  
 > Construir la imagen Docker desde el directorio raíz del proyecto (donde se encuentra el archivo `Dockerfile`), de modo que se copie toda la estructura y se reconozcan correctamente los paquetes.

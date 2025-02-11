@@ -26,13 +26,16 @@ taller1/                     # Directorio raíz del proyecto
 ├── app/                     # Código fuente de la API
 │   ├── __init__.py          # Indica que 'app' es un paquete Python
 │   ├── main.py              # Punto de entrada de la aplicación
-│   ├── models/              # Carpeta para el modelo de IA
-│   │   ├── __init__.py      #
-│   │   └── model.pkl        #
+│   ├── models/                               # Carpeta para los modelos de IA
+│   │   ├── __init__.py                       #
+│   │   └── DecisionTree_optimized.pkl        # Modelo 1
+|   |   └── LogisticRegression_optimized.pkl  # Modelo 2
+|   |   └── RandomForest_optimized.pkl        # Modelo 3  
+|   |   └── train.py                          # Codigo de los modelos (Realizado en Colab)
 │   └── routes/              # Carpeta para los endpoints de la API
 │       ├── __init__.py      #
 │       ├── predict.py       # Endpoint para realizar predicciones
-│       └── health.py        # Endpoint para verificar el estado de la API
+│       └── api_test.py      # Endpoint para verificar el estado de la API
 ├── requirements.txt         # Lista de dependencias del proyecto
 ├── Dockerfile               # Instrucciones para construir la imagen Docker
 └── README.md                # Este archivo
@@ -64,5 +67,5 @@ docker run -p 8989:8989 fastapi-ml-service
 Para probar la API
 
 ```bash
-curl -X POST "http://localhost:8989/predict/" -H "Content-Type: application/json" -d "[5.1, 3.5, 1.4, 0.2]"
+curl -X POST "http://localhost:8989/predict/" -H "Content-Type: application/json" -d '[0, 47.2, 13.7, 214.0, 4925.0, 1]'
 ```

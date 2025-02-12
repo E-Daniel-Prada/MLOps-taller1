@@ -66,6 +66,21 @@ docker run -p 8989:8989 fastapi-ml-service
 
 Para probar la API
 
+Se tienen 3 modelos cargados en el api
+
+model_files = {
+    1: "app/models/LogisticRegression_optimized.pkl",
+    2: "app/models/DecisionTree_optimized.pkl",
+    3: "app/models/RandomForest_optimized.pkl"
+}
+
+Segun el modelo a utilizar en la predicción se solicita el codigo al final del path del servicio POST
+
 ```bash
-curl -X POST "http://localhost:8989/predict/" -H "Content-Type: application/json" -d '[0, 47.2, 13.7, 214.0, 4925.0, 1]'
+http://localhost:8989/predict/{id}
+```
+Ejemplo de consumo
+
+```bash
+curl -X POST "http://localhost:8989/predict/1" -H "Content-Type: application/json" -d '[0, 47.2, 13.7, 214.0, 4925.0, 1]'
 ```

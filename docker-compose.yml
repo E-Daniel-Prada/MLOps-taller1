@@ -7,6 +7,7 @@ services:
       - "8989:8000"
     volumes:
       - .:/app
+      - ./models:/app/models  # Volumen compartido para modelos
       - /app/.venv  # Evita que el entorno virtual sea sobrescrito
     command: ["/app/.venv/bin/python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
@@ -15,4 +16,5 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - .:/home/jovyan/work
+      - ./jupyter_work:/home/jovyan/work  # Volumen para guardar los archivos de Jupyter
+      - ./models:/home/jovyan/work/models  # Asegurar que los modelos sean compartidos
